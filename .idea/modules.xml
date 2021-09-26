@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/customers-service/customers_service.iml" filepath="$PROJECT_DIR$/customers-service/customers_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/couriers_service/couriers_service.iml" filepath="$PROJECT_DIR$/couriers_service/couriers_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customers_service/customers_service.iml" filepath="$PROJECT_DIR$/customers_service/customers_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/orders_service/orders_service.iml" filepath="$PROJECT_DIR$/orders_service/orders_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment_service/payment_service.iml" filepath="$PROJECT_DIR$/payment_service/payment_service.iml" />
     </modules>
   </component>
 </project>
