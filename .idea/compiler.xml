@@ -15,9 +15,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="couriers_service" target="11" />
-      <module name="customers_service" target="11" />
+      <module name="customers_service" target="1.5" />
       <module name="order_management_service" target="11" />
-      <module name="orders_service" target="11" />
+      <module name="orders_service" target="1.5" />
       <module name="payment_service" target="11" />
     </bytecodeTargetLevel>
   </component>
