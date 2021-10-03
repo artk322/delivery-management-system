@@ -9,22 +9,30 @@
         <outputRelativeToContentRoot value="true" />
         <module name="couriers_service" />
         <module name="orders_service" />
+        <module name="couriers_service (1)" />
+        <module name="discovery-server" />
         <module name="payment_service" />
         <module name="customers_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="couriers_service" target="11" />
-      <module name="customers_service" target="1.5" />
+      <module name="couriers_service (1)" target="11" />
+      <module name="couriers_service (2)" target="11" />
+      <module name="customers_service" target="11" />
+      <module name="discovery-server" target="1.8" />
       <module name="order_management_service" target="11" />
-      <module name="orders_service" target="1.5" />
+      <module name="orders_service" target="11" />
       <module name="payment_service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="couriers_service" options="-parameters" />
+      <module name="couriers_service (1)" options="-parameters" />
+      <module name="couriers_service (2)" options="-parameters" />
       <module name="customers_service" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="order_management_service" options="-parameters" />
       <module name="orders_service" options="-parameters" />
       <module name="payment_service" options="-parameters" />

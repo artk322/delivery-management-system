@@ -9,10 +9,11 @@
         <option value="$PROJECT_DIR$/couriers_service/pom.xml" />
         <option value="$PROJECT_DIR$/payment_service/pom.xml" />
         <option value="$PROJECT_DIR$/order_management_service/pom.xml" />
+        <option value="$PROJECT_DIR$/discovery-server/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="azul-15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
