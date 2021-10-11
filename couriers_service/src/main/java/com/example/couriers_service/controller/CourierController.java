@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/courier")
 public class CourierController {
 
   @Autowired
   private CourierService courier_service;
+
+//  @Autowired
+//  private DiscoveryClient discoveryClient;
+//
+//  @Autowired
+//  LoadBalancerClient loadBalancerClient;
 
   @PostMapping
   public ResponseEntity<Long> create_courier(Courier courier) {
@@ -30,4 +35,31 @@ public class CourierController {
     Courier courier = courier_service.get_courier_by_id(id);
     courier.setIs_busy(is_busy);
   }
+
+//  @RequestMapping("/load-balance")
+//  public String serverLocation(Model model) {
+//    String serviceId = "REST-SERVER";
+//
+//    List<ServiceInstance> instances = this.discoveryClient.getInstances(serviceId);
+//
+//    if (instances != null && !instances.isEmpty()) {
+//      RestTemplate restTemplate = new RestTemplate();
+//
+//      model.addAttribute("serviceId", serviceId);
+//      model.addAttribute("instances", instances);
+//      try {
+//        ServiceInstance serviceInstance = this.loadBalancerClient.choose(serviceId);
+//        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort();
+//        String result = restTemplate.getForObject(url, String.class);
+//
+//        model.addAttribute("url", url);
+//        model.addAttribute("result", result);
+//
+//      } catch (IllegalStateException e) {
+//        model.addAttribute("Error", e.getMessage());
+//        e.printStackTrace();
+//      }
+//    }
+//    return "index";
+//  }
 }
