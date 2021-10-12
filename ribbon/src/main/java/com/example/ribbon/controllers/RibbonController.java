@@ -37,10 +37,8 @@ public class RibbonController {
       try {
         ServiceInstance serviceInstance = this.loadBalancerClient.choose(serviceId);
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort();
-        String result = restTemplate.getForObject(url, String.class);
 
         model.addAttribute("url", url);
-        model.addAttribute("result", result);
 
       } catch (IllegalStateException e) {
         model.addAttribute("Error", e.getMessage());
