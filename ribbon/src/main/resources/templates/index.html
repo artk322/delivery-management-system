@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${serviceId}"></h1>
+
+    <h1>Aviable:</h1>
+    <span th:each="instance : ${instances}">
+        <span th:text="${instance.uri}"></span> <br />
+    </span>
+
+    <h1>Target url</h1>
+    <h3 th:text="${url}"></h3>
+
+    <h1>Result</h1>
+    <p th:text="${result}"></p>
+</body>
+</html>

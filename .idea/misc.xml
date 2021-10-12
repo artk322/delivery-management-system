@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/discovery-server/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/customers_service/pom.xml" />
+        <option value="$PROJECT_DIR$/ribbon/pom.xml" />
       </list>
     </option>
   </component>
