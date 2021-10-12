@@ -5,10 +5,12 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.client.loadbalancer.ServiceInstanceChooser;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -46,5 +48,17 @@ public class RibbonController {
       }
     }
     return "index";
+  }
+
+  @ResponseBody
+  @RequestMapping("/get-load-balance/{serviceId}")
+  public ResponseEntity<String> getServerLocation(@PathVariable String serviceId) {
+    try {
+      ServiceInstance serviceInstance = this.loadBalancerClient.choose(serviceId);
+      String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort();
+      return ResponseEntity.ok(url);
+    } catch (IllegalStateException e) {
+      return ResponseEntity.ok(e.getMessage());
+    }
   }
 }

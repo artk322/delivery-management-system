@@ -7,8 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Courier {
   private Long id;
-  private Boolean is_busy;
+  private Boolean is_busy = false;
   private String name;
   private String phone_number;
-  private Long current_order_id;
+  private Long current_order_id = null;
 }

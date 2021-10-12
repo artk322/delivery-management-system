@@ -20,13 +20,15 @@ public class OrderServiceImpl implements OrderService {
   public void complete_order_by_id(Long id) {
     Order order = get_orders_by_id(id);
     order.setStatus("completed");
-    restTemplate.postForLocation("http://couriers_service/courier/is_busy", order.getCourier_id(), false);
+    String courier_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/couriers_service", String.class);
+    restTemplate.postForLocation(courier_url + "/courier/is_busy", order.getCourier_id(), false);
   }
 
   @Override
   public Long create_order(Order order) {
     order.setStatus("in_progress");
-    restTemplate.postForLocation("http://payment_service/payment", order.getPrice());
+    String payment_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/payment_service", String.class);
+    restTemplate.postForLocation(payment_url+ "/payment", order.getPrice());
     orders.add(order);
     return order.getId();
   }
