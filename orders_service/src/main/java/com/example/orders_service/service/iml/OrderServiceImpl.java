@@ -25,6 +25,7 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public Long create_order(Order order) {
     order.setStatus("in_progress");
     String payment_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/payment_service", String.class);
@@ -34,11 +35,13 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public List<Order> get_all_orders() {
     return orders;
   }
 
   @Override
+  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public List<Order> get_orders_by_customer_id(Long id) {
     List<Order> filtered_orders = new ArrayList<>();
     for (Order order : orders) {
@@ -50,6 +53,7 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public List<Order> get_orders_by_status(String status) {
     List<Order> filtered_orders = new ArrayList<>();
     for (Order order : orders) {
@@ -67,5 +71,9 @@ public class OrderServiceImpl implements OrderService {
       }
     }
     return null;
+  }
+
+  private String requestFailedFallback() {
+    return "Request failed";
   }
 }
