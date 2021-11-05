@@ -2,6 +2,7 @@ package com.example.couriers_service.service.iml;
 
 import com.example.couriers_service.model.Courier;
 import com.example.couriers_service.service.CourierService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
