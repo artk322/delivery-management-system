@@ -14,6 +14,7 @@
         <module name="payment_service" />
         <module name="customers_service" />
         <module name="ribbon" />
+        <module name="gateway-server" />
         <module name="demo" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="customers_service" target="11" />
       <module name="demo" target="11" />
       <module name="discovery-server" target="1.8" />
+      <module name="gateway-server" target="11" />
       <module name="order_management_service" target="11" />
       <module name="orders_service" target="11" />
       <module name="payment_service" target="11" />
@@ -38,6 +40,7 @@
       <module name="customers_service" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
       <module name="order_management_service" options="-parameters" />
       <module name="orders_service" options="-parameters" />
       <module name="payment_service" options="-parameters" />
