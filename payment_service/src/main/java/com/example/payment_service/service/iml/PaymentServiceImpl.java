@@ -12,9 +12,8 @@ public class PaymentServiceImpl implements PaymentService {
   private RestTemplate restTemplate;
 
   @Override
-  public void pay() {
-    //
-//    restTemplate.getForObject()
-//    restTemplate.postForLocation("http://customer_service/customer/balance");
+  public void pay(Double price) {
+    String customer_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/customer_service", String.class);
+    restTemplate.postForLocation(customer_url, price);
   }
 }
