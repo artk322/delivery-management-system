@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="couriers_service" />
-        <module name="auth-service" />
         <module name="couriers_service (1)" />
         <module name="orders_service" />
         <module name="discovery-server" />

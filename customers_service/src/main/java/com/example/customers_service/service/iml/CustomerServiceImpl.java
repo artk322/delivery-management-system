@@ -13,20 +13,19 @@ public class CustomerServiceImpl implements CustomerService {
   private List<Customer> customers = new ArrayList<>();
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
+  @HystrixCommand(fallbackMethod = "get_all_customers_fallback")
   public List<Customer> get_all_customers() {
     return customers;
   }
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public Long add_customer(Customer customer) {
     customers.add(customer);
     return customer.getId();
   }
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
+  @HystrixCommand(fallbackMethod = "get_all_customer_fallback")
   public Customer get_customer_by_id(long id) {
     for (Customer customer : customers) {
       if (customer.getId() == id) {
@@ -36,7 +35,12 @@ public class CustomerServiceImpl implements CustomerService {
     return null;
   }
 
-  private String requestFailedFallback() {
-    return "Request failed";
+  private List<Customer> get_all_customer_fallback() {
+    return null;
+  }
+
+  private List<Customer> get_all_customers_fallback() {
+    List<Customer> customers = new ArrayList<>();
+    return customers;
   }
 }

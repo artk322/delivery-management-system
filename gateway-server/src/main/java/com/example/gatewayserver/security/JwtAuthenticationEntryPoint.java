@@ -13,7 +13,7 @@ import java.io.IOException;
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED");
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED GO OUT");
 
         String json = String.format("{\"message\": \"%s\"}", e.getMessage());
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
