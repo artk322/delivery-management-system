@@ -3,6 +3,7 @@ package com.example.customers_service.service.iml;
 import com.example.customers_service.model.Customer;
 import com.example.customers_service.service.CustomerService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +14,11 @@ public class CustomerServiceImpl implements CustomerService {
   private List<Customer> customers = new ArrayList<>();
 
   @Override
-  @HystrixCommand(fallbackMethod = "get_all_customers_fallback")
+  @HystrixCommand(fallbackMethod = "get_all_customers_fallback",
+      threadPoolKey = "threadPoolCustomers",
+      threadPoolProperties = {
+          @HystrixProperty(name = "coreSize", value = "15"),
+          @HystrixProperty(name = "maxQueueSize", value = "5") })
   public List<Customer> get_all_customers() {
     return customers;
   }
