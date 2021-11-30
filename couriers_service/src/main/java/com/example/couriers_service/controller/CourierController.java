@@ -15,12 +15,6 @@ public class CourierController {
   @Autowired
   private CourierService courier_service;
 
-//  @Autowired
-//  private DiscoveryClient discoveryClient;
-//
-//  @Autowired
-//  LoadBalancerClient loadBalancerClient;
-
   @PostMapping
   public ResponseEntity<Long> create_courier(Courier courier) {
     return ResponseEntity.ok(courier_service.create_courier(courier));

@@ -2,6 +2,7 @@ package com.example.customers_service.controller;
 
 import com.example.customers_service.model.Customer;
 import com.example.customers_service.service.CustomerService;
+import com.example.customers_service.service.KafkaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ public class CustomerController {
 
   @Autowired
   private CustomerService customer_service;
+
+  @Autowired
+  private KafkaService kafkaService;
 
   @PostMapping
   public ResponseEntity<Long> add_customer(@RequestBody Customer customer) {
@@ -36,5 +40,11 @@ public class CustomerController {
     Double balance = customer.getBalance() - price;
     customer.setBalance(balance);
     return ResponseEntity.ok(customer.getBalance());
+  }
+
+  @GetMapping("/producer")
+  public String producer(@RequestParam("message") String message) {
+    kafkaService.send(message);
+    return "Message sent to the Kafka Topic java_in_use_topic Successfully";
   }
 }

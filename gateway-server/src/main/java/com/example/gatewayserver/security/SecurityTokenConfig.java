@@ -2,6 +2,7 @@ package com.example.gatewayserver.security;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.commonservice.security.JwtConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

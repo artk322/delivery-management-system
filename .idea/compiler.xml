@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="couriers_service" />
+        <module name="auth-service" />
         <module name="couriers_service (1)" />
         <module name="orders_service" />
         <module name="discovery-server" />
+        <module name="common-service" />
         <module name="payment_service" />
         <module name="customers_service" />
         <module name="ribbon" />
@@ -20,6 +22,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auth-service" target="11" />
+      <module name="common-service" target="11" />
       <module name="couriers_service" target="11" />
       <module name="couriers_service (1)" target="11" />
       <module name="couriers_service (2)" target="11" />
@@ -36,6 +39,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
+      <module name="common-service" options="-parameters" />
       <module name="couriers_service" options="-parameters" />
       <module name="couriers_service (1)" options="-parameters" />
       <module name="couriers_service (2)" options="-parameters" />
