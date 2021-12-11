@@ -11,8 +11,8 @@
         <module name="auth-service" />
         <module name="couriers_service (1)" />
         <module name="orders_service" />
-        <module name="discovery-server" />
         <module name="common-service" />
+        <module name="discovery-server" />
         <module name="payment_service" />
         <module name="customers_service" />
         <module name="ribbon" />

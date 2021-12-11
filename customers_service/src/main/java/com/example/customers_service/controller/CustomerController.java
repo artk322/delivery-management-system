@@ -23,7 +23,6 @@ public class CustomerController {
   public ResponseEntity<Long> add_customer(@RequestBody Customer customer) {
     return ResponseEntity.ok(customer_service.add_customer(customer));
   }
-
   @GetMapping("/{id}")
   public ResponseEntity<Customer> get_customer_by_id(@PathVariable Long id) {
     return ResponseEntity.ok(customer_service.get_customer_by_id(id));
