@@ -26,7 +26,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter   {
 
-  // We use auth manager to validate the user credentials
   private AuthenticationManager authManager;
 
   private final JwtConfig jwtConfig;
@@ -35,8 +34,6 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     this.authManager = authManager;
     this.jwtConfig = jwtConfig;
 
-    // By default, UsernamePasswordAuthenticationFilter listens to "/login" path.
-    // In our case, we use "/auth". So, we need to override the defaults.
     this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), "POST"));
   }
 
@@ -46,14 +43,11 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 
     try {
 
-      // 1. Get credentials from request
       UserCredentials creds = new ObjectMapper().readValue(request.getInputStream(), UserCredentials.class);
 
-      // 2. Create auth object (contains credentials) which will be used by auth manager
       UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
           creds.getUsername(), creds.getPassword(), Collections.emptyList());
 
-      // 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user.
       return authManager.authenticate(authToken);
 
     } catch (IOException e) {
@@ -61,8 +55,6 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     }
   }
 
-  // Upon successful authentication, generate a token.
-  // The 'auth' passed to successfulAuthentication() is the current authenticated user.
   @Override
   protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                           Authentication auth) throws IOException, ServletException {
