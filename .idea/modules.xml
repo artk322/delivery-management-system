@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/couriers_service/couriers_service.iml" filepath="$PROJECT_DIR$/couriers_service/couriers_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/customers_service/customers_service.iml" filepath="$PROJECT_DIR$/customers_service/customers_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/discovery-server/discovery-server.iml" filepath="$PROJECT_DIR$/discovery-server/discovery-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/feedback-service/feedback-service.iml" filepath="$PROJECT_DIR$/feedback-service/feedback-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway-server/gateway-server.iml" filepath="$PROJECT_DIR$/gateway-server/gateway-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/orders_service/orders_service.iml" filepath="$PROJECT_DIR$/orders_service/orders_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/payment_service/payment_service.iml" filepath="$PROJECT_DIR$/payment_service/payment_service.iml" />

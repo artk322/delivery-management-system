@@ -62,7 +62,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-com.example.feedbackservice.config</artifactId>
+            <artifactId>spring-security-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -74,7 +74,7 @@
         </dependency>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>common-com.example.feedbackservice.service</artifactId>
+            <artifactId>common-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
