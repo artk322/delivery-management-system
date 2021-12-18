@@ -42,7 +42,7 @@ public class JwtTokenAuthenticationFilter extends  OncePerRequestFilter {
 		// If there is no token provided and hence the user won't be authenticated.
 		// It's Ok. Maybe the user accessing a public path or asking for a token.
 
-		// All secured paths that needs a token are already defined and secured in config class.
+		// All secured paths that needs a token are already defined and secured in com.example.feedbackservice.config class.
 		// And If user tried to access without access token, then he won't be authenticated and an exception will be thrown.
 
 		// 3. Get the token
