@@ -9,7 +9,8 @@ public class Order {
   private Long id;
   private Long courier_id;
   private Long customer_id;
-  private Double price;
+  private Long product_id;
+  private Long feedback_id;
   private String status; // delivering, cooking, finished
   private Boolean is_paid;
   private String details; // what to bring, from - to

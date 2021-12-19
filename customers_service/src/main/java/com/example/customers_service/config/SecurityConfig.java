@@ -16,8 +16,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
   {
     http
       .csrf().disable()
-      .authorizeRequests().anyRequest().hasRole("REST_CLIENT")
-      .and()
       .httpBasic();
   }
 

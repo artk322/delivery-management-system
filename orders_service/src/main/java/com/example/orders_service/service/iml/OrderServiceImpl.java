@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
   public Long create_order(Order order) {
     order.setStatus("in_progress");
     String payment_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/payment_service", String.class);
-    restTemplate.postForLocation(payment_url+ "/payment", order.getPrice());
+//    restTemplate.postForLocation(payment_url+ "/payment", order.getPrice());
     orders.add(order);
     return order.getId();
   }
