@@ -34,9 +34,8 @@ public class CustomerController {
   }
 
   @PostMapping("/balance")
-  public ResponseEntity<Double> set_balance(Long id, Double price) {
+  public ResponseEntity<Double> set_balance(Long id, Double balance) {
     Customer customer = customer_service.get_customer_by_id(id);
-    Double balance = customer.getBalance() - price;
     customer.setBalance(balance);
     return ResponseEntity.ok(customer.getBalance());
   }
