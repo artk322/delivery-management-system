@@ -1,4 +1,4 @@
-package com.example.customers_service.config;
+package com.example.productsservice.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +15,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
   protected void configure(HttpSecurity http) throws Exception
   {
     http
-      .csrf().disable()
-      .authorizeRequests().anyRequest().hasRole("REST_CLIENT")
-      .and()
-      .httpBasic();
+        .csrf().disable()
+        .authorizeRequests().anyRequest().hasRole("REST_CLIENT")
+        .and()
+        .httpBasic();
   }
 
   @Autowired
@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
   {
     auth.inMemoryAuthentication()
         .withUser("rest-client")
-        .password("p@ssword")
+        .password("{noop}p@ssword")
         .roles("REST_CLIENT");
   }
 }
