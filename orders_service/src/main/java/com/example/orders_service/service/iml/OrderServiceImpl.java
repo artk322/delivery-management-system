@@ -42,8 +42,14 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
-  public Order get_order_by_id() {
-    return null;
+  public Order get_order_by_id(Long id) {
+    Order target_order = null;
+    for (Order order : orders) {
+      if (order.getId() == id) {
+        target_order = order;
+      }
+    }
+    return target_order;
   }
 
   @Override
@@ -60,32 +66,43 @@ public class OrderServiceImpl implements OrderService {
 
   @Override
   public List<Order> get_orders_by_courier_id(Long id) {
-    return null;
+    List<Order> filtered_orders = new ArrayList<>();
+    for (Order order : orders) {
+      if (order.getCourier_id() == id) {
+        filtered_orders.add(order);
+      }
+    }
+    return filtered_orders;
   }
 
   @Override
   public String get_order_status(Long id) {
-    return null;
+    Order order = get_order_by_id(id);
+    return order.getStatus();
   }
 
   @Override
-  public void set_order_status(String status) {
-
+  public void set_order_status(Long id, String status) {
+    Order order = get_order_by_id(id);
+    order.setStatus(status);
   }
 
   @Override
   public void assign_feedback_id(Long order_id, Long feedback_id) {
-
+    Order order = get_order_by_id(order_id);
+    order.setFeedback_id(feedback_id);
   }
 
   @Override
   public void assign_courier_id(Long order_id, Long courier_id) {
-
+    Order order = get_order_by_id(order_id);
+    order.setCourier_id(courier_id);
   }
 
   @Override
   public void assign_customer_id(Long order_id, Long customer_id) {
-
+    Order order = get_order_by_id(order_id);
+    order.setCustomer_id(customer_id);
   }
 
   public Order get_orders_by_id(Long id) {

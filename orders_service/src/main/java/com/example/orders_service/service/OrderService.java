@@ -8,13 +8,13 @@ public interface OrderService {
   Long create_order(Order order);
 
   List<Order> get_all_orders();
-  Order get_order_by_id();
+  Order get_order_by_id(Long id);
 
   List<Order> get_orders_by_customer_id(Long id);
   List<Order> get_orders_by_courier_id(Long id);
 
   String get_order_status(Long id);
-  void set_order_status(String status);
+  void set_order_status(Long id, String status);
 
   void assign_feedback_id(Long order_id, Long feedback_id);
   void assign_courier_id(Long order_id, Long courier_id);

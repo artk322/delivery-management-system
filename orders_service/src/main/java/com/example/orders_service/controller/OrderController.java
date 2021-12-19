@@ -31,7 +31,7 @@ public class OrderController {
   }
   @PostMapping("/status/{id}")
   public ResponseEntity<String> order_set_status(@PathVariable Long id, @RequestBody String status) {
-    order_service.set_order_status(status);
+    order_service.set_order_status(id, status);
     return ResponseEntity.ok("ok");
   }
 
