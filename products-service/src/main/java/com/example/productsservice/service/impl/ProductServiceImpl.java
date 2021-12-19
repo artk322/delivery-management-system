@@ -30,4 +30,14 @@ public class ProductServiceImpl implements ProductService {
   public List<Product> get_all_products() {
     return products;
   }
+
+  @Override
+  public Product get_product_by_id(Long id) {
+    for(Product product : products){
+      if (product.getId() == id) {
+        return product;
+      }
+    }
+    return null;
+  }
 }

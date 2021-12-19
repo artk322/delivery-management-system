@@ -33,7 +33,13 @@ public class CustomerController {
     return ResponseEntity.ok(customer_service.get_all_customers());
   }
 
-  @PostMapping("/balance")
+  @GetMapping("/balance/{id}")
+  public ResponseEntity<Double> getBalanceById(Long id){
+    Customer customer = customer_service.get_customer_by_id(id);
+    return ResponseEntity.ok(customer.getBalance());
+  }
+
+  @PostMapping("/balance/{id}")
   public ResponseEntity<Double> set_balance(Long id, Double balance) {
     Customer customer = customer_service.get_customer_by_id(id);
     customer.setBalance(balance);

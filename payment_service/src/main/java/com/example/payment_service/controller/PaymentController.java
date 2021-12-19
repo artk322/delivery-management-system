@@ -19,7 +19,9 @@ public class PaymentController {
   @PostMapping
   public ResponseEntity<String> makePayment(@RequestBody ObjectNode json) {
 //    paymentService.pay(price);
-    System.out.println(json.get("price"));
+    //System.out.println(json.get("price"));
+    //Customer cust = json.get("cust_id");
+    //newBalance = json.get("cust_id");
     return ResponseEntity.ok("ok");
   }
 }
