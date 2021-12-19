@@ -13,8 +13,8 @@
         <module name="ribbon" />
         <module name="feedback-service" />
         <module name="demo" />
-        <module name="auth-service" />
         <module name="products-service" />
+        <module name="auth-service" />
         <module name="couriers_service (1)" />
         <module name="discovery-server" />
         <module name="orders_service" />
