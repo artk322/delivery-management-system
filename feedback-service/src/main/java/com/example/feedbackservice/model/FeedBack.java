@@ -7,8 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class FeedBack {
     private Long id;
-    private String header;
-    private String body;
+    private String title;
+    private String description;
     private double rating;
-
 }

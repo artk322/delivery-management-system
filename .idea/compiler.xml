@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="auth-service" />
         <module name="couriers_service" />
-        <module name="couriers_service (1)" />
         <module name="common-service" />
-        <module name="discovery-server" />
-        <module name="orders_service" />
         <module name="payment_service" />
-        <module name="customers_service" />
         <module name="ribbon" />
-        <module name="gateway-server" />
         <module name="feedback-service" />
         <module name="demo" />
+        <module name="auth-service" />
+        <module name="products-service" />
+        <module name="couriers_service (1)" />
+        <module name="discovery-server" />
+        <module name="orders_service" />
+        <module name="customers_service" />
+        <module name="gateway-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -35,6 +36,8 @@
       <module name="order_management_service" target="11" />
       <module name="orders_service" target="11" />
       <module name="payment_service" target="11" />
+      <module name="product-service" target="11" />
+      <module name="products-service" target="11" />
       <module name="ribbon" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -53,6 +56,8 @@
       <module name="order_management_service" options="-parameters" />
       <module name="orders_service" options="-parameters" />
       <module name="payment_service" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="products-service" options="-parameters" />
       <module name="ribbon" options="-parameters" />
     </option>
   </component>
