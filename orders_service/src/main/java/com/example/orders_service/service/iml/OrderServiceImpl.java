@@ -42,6 +42,11 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  public Order get_order_by_id() {
+    return null;
+  }
+
+  @Override
   @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public List<Order> get_orders_by_customer_id(Long id) {
     List<Order> filtered_orders = new ArrayList<>();
@@ -54,15 +59,33 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
-  public List<Order> get_orders_by_status(String status) {
-    List<Order> filtered_orders = new ArrayList<>();
-    for (Order order : orders) {
-      if (order.getStatus().equals(status)) {
-        filtered_orders.add(order);
-      }
-    }
-    return filtered_orders;
+  public List<Order> get_orders_by_courier_id(Long id) {
+    return null;
+  }
+
+  @Override
+  public String get_order_status(Long id) {
+    return null;
+  }
+
+  @Override
+  public void set_order_status(String status) {
+
+  }
+
+  @Override
+  public void assign_feedback_id(Long order_id, Long feedback_id) {
+
+  }
+
+  @Override
+  public void assign_courier_id(Long order_id, Long courier_id) {
+
+  }
+
+  @Override
+  public void assign_customer_id(Long order_id, Long customer_id) {
+
   }
 
   public Order get_orders_by_id(Long id) {

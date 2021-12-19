@@ -25,13 +25,22 @@ public class OrderController {
     return ResponseEntity.ok(order_service.get_all_orders());
   }
 
-  @GetMapping("/{status}")
-  public ResponseEntity<List> get_order_by_status(@PathVariable String status) {
-    return ResponseEntity.ok(order_service.get_orders_by_status(status));
+  @GetMapping("/status/{id}")
+  public ResponseEntity<String> get_order_status(@PathVariable Long id) {
+    return ResponseEntity.ok(order_service.get_order_status(id));
+  }
+  @PostMapping("/status/{id}")
+  public ResponseEntity<String> order_set_status(@PathVariable Long id, @RequestBody String status) {
+    order_service.set_order_status(status);
+    return ResponseEntity.ok("ok");
   }
 
   @GetMapping("/customer/{id}")
   public ResponseEntity<List> get_order_by_customer_id(@PathVariable Long id) {
+    return ResponseEntity.ok(order_service.get_orders_by_customer_id(id));
+  }
+  @GetMapping("/courier/{id}")
+  public ResponseEntity<List> get_order_by_courier_id(@PathVariable Long id) {
     return ResponseEntity.ok(order_service.get_orders_by_customer_id(id));
   }
 }
