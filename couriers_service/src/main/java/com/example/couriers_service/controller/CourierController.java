@@ -16,18 +16,12 @@ public class CourierController {
   private CourierService courier_service;
 
   @PostMapping
-  public ResponseEntity<Long> create_courier(Courier courier) {
+  public ResponseEntity<Long> create_courier(@RequestBody Courier courier) {
     return ResponseEntity.ok(courier_service.create_courier(courier));
   }
 
   @GetMapping
   public ResponseEntity<List> get_all_couriers() {
     return ResponseEntity.ok(courier_service.get_all_couriers());
-  }
-
-  @PostMapping("/is_busy")
-  public void set_is_busy(@RequestBody Long id, @RequestBody Boolean is_busy) {
-    Courier courier = courier_service.get_courier_by_id(id);
-    courier.setIs_busy(is_busy);
   }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/payment")
+@CrossOrigin
 public class PaymentController {
 
   @Autowired
@@ -18,7 +19,7 @@ public class PaymentController {
 
   @PostMapping
   public ResponseEntity<String> makePayment(@RequestBody ObjectNode json) {
-//    paymentService.pay(price);
+//    paymentService.pay(json.get());
     //System.out.println(json.get("price"));
     //Customer cust = json.get("cust_id");
     //newBalance = json.get("cust_id");

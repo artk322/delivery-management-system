@@ -25,7 +25,6 @@ public class RibbonController {
   @Autowired
   LoadBalancerClient loadBalancerClient;
 
-
   @RequestMapping("/load-balance/{serviceId}")
   public String serverLocation(Model model, @PathVariable String serviceId) {
 

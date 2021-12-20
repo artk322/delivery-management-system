@@ -27,7 +27,6 @@ public class CourierServiceImpl implements CourierService {
           @HystrixProperty(name = "maxQueueSize", value = "5") })
   public void take_order(Long courier_id, Long order_id) {
     Courier courier = get_courier_by_id(courier_id);
-    courier.setCurrent_order_id(order_id);
   }
 
   @Override

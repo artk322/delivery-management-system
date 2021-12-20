@@ -26,17 +26,18 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
+//  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public Long create_order(Order order) {
     order.setStatus("in_progress");
-    String payment_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/payment_service", String.class);
+    order.setIs_paid(false);
+//    String payment_url = restTemplate.getForObject("http://localhost:8085/get-load-balance/payment_service", String.class);
 //    restTemplate.postForLocation(payment_url+ "/payment", order.getPrice());
     orders.add(order);
     return order.getId();
   }
 
   @Override
-  @HystrixCommand(fallbackMethod = "requestFailedFallback")
+//  @HystrixCommand(fallbackMethod = "requestFailedFallback")
   public List<Order> get_all_orders() {
     return orders;
   }
@@ -44,9 +45,11 @@ public class OrderServiceImpl implements OrderService {
   @Override
   public Order get_order_by_id(Long id) {
     Order target_order = null;
+    System.out.println(id);
     for (Order order : orders) {
-      if (order.getId() == id) {
-        target_order = order;
+      if (order.getId().longValue() == id.longValue()) {
+        System.out.println(order);
+        return order;
       }
     }
     return target_order;
@@ -114,7 +117,7 @@ public class OrderServiceImpl implements OrderService {
     return null;
   }
 
-  private String requestFailedFallback() {
-    return "Request failed";
+  private List<Order> requestFailedFallback() {
+    return null;
   }
 }

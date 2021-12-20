@@ -20,9 +20,9 @@ public class FeedBackServiceImpl implements FeedBackService {
     }
 
     @Override
-    public FeedBack get_feedback_by_id(long id) {
+    public FeedBack get_feedback_by_id(Long id) {
         for (FeedBack feedBack : feedBacks){
-            if(feedBack.getId() == id){
+            if(feedBack.getId().longValue() == id.longValue()){
                 return feedBack;
             }
         }
